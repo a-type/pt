@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@a-type/ui": "0.8.4",
+    "@a-type/ui": "0.8.5",
     "@pt/verdant": "workspace:*",
     "@unocss/transformer-variant-group": "0.59.4",
     "@verdant-web/react-router": "0.6.2",
