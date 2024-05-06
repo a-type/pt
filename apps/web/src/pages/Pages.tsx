@@ -2,6 +2,7 @@ import { PageRoot } from '@a-type/ui/components/layouts';
 import ExercisePage from './ExercisePage.jsx';
 import { HomePage } from './HomePage.jsx';
 import { makeRoutes, Outlet, Router } from '@verdant-web/react-router';
+import { SettingsPage } from './SettingsPage.jsx';
 
 const routes = makeRoutes([
   {
@@ -12,6 +13,10 @@ const routes = makeRoutes([
   {
     path: '/edit/:id',
     component: ExercisePage,
+  },
+  {
+    path: '/settings',
+    component: SettingsPage,
   },
 ]);
 

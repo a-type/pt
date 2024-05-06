@@ -52,7 +52,16 @@ function RandomExercisePicker({ sequence }: { sequence: Shuffle }) {
           </Suspense>
         </CollapsibleContent>
       </CollapsibleRoot>
-      <Suspense>
+      <Suspense
+        fallback={
+          <CardRoot>
+            <CardMain>
+              <CardTitle>Loading...</CardTitle>
+              <CardContent>Loading...</CardContent>
+            </CardMain>
+          </CardRoot>
+        }
+      >
         <RandomExerciseDisplay sequence={sequence} tagFilters={tagFilters} />
       </Suspense>
       <Button

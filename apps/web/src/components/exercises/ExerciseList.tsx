@@ -1,5 +1,5 @@
 import { Exercise, hooks } from '@/store.js';
-import { Button, ConfirmedButton } from '@a-type/ui/components/button';
+import { ConfirmedButton } from '@a-type/ui/components/button';
 import {
   CardActions,
   CardContent,
@@ -10,18 +10,15 @@ import {
   CardTitle,
 } from '@a-type/ui/components/card';
 import { Icon } from '@a-type/ui/components/icon';
-import { InfiniteLoadTrigger } from '@a-type/ui/components/infiniteLoadTrigger';
 import { H2 } from '@a-type/ui/components/typography';
-import { Link, useNavigate } from '@verdant-web/react-router';
-import { TagDisplay } from './TagDisplay.jsx';
+import { Link } from '@verdant-web/react-router';
 import { CreateExerciseButton } from './CreateExerciseButton.jsx';
+import { TagDisplay } from './TagDisplay.jsx';
 
 export interface ExerciseListProps {}
 
 export function ExerciseList({}: ExerciseListProps) {
-  const [data, pages] = hooks.useAllExercisesInfinite({
-    pageSize: 50,
-  });
+  const data = hooks.useAllExercises();
 
   return (
     <div className="col items-start gap-4 w-full">
@@ -34,7 +31,6 @@ export function ExerciseList({}: ExerciseListProps) {
         {data.map((ex) => (
           <ExerciseListItem key={ex.get('id')} exercise={ex} />
         ))}
-        {pages.hasMore && <InfiniteLoadTrigger onVisible={pages.loadMore} />}
       </CardGrid>
     </div>
   );

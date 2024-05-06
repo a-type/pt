@@ -26,6 +26,9 @@ importers:
       '@verdant-web/react-router':
         specifier: 0.6.2
         version: 0.6.2(react@18.3.1)
+      '@verdant-web/store':
+        specifier: 3.6.3
+        version: 3.6.3
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -91,7 +94,7 @@ importers:
         specifier: ^32.0.0
         version: 32.0.0(@verdant-web/store@3.6.3)(react@18.3.1)
       '@verdant-web/store':
-        specifier: ^3.6.3
+        specifier: 3.6.3
         version: 3.6.3
       cuid:
         specifier: ^2.1.8
