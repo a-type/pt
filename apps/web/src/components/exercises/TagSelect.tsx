@@ -46,10 +46,16 @@ export function TagSelect({
           </Button>
         );
       })}
+      {!tags.length && (
+        <div className="text-sm italic text-gray-7">No tags yet!</div>
+      )}
       {allowAdd && (
         <Dialog open={showAdd} onOpenChange={setShowAdd}>
           <DialogTrigger asChild>
-            <Button size="small">New tag</Button>
+            <Button size="small">
+              <Icon name="plus" />
+              New tag
+            </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogTitle>New tag</DialogTitle>

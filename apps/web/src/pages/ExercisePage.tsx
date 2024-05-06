@@ -1,3 +1,4 @@
+import { CreateExerciseButton } from '@/components/exercises/CreateExerciseButton.jsx';
 import { ExerciseEditor } from '@/components/exercises/ExerciseEditor.jsx';
 import { hooks } from '@/store.js';
 import { Button } from '@a-type/ui/components/button';
@@ -13,10 +14,14 @@ export function ExercisePage({}: ExercisePageProps) {
   if (!exercise) return <PageContent>Not found</PageContent>;
   return (
     <PageContent>
-      <PageFixedArea className="row py-3">
-        <Button asChild className="self-start" color="ghost">
+      <PageFixedArea className="row py-3 justify-end">
+        <CreateExerciseButton>
+          <Icon name="plus" />
+          Create another
+        </CreateExerciseButton>
+        <Button asChild color="primary">
           <Link to="/">
-            <Icon name="arrowLeft" /> Back
+            <Icon name="check" /> Done
           </Link>
         </Button>
       </PageFixedArea>

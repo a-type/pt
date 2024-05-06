@@ -14,6 +14,7 @@ import { InfiniteLoadTrigger } from '@a-type/ui/components/infiniteLoadTrigger';
 import { H2 } from '@a-type/ui/components/typography';
 import { Link, useNavigate } from '@verdant-web/react-router';
 import { TagDisplay } from './TagDisplay.jsx';
+import { CreateExerciseButton } from './CreateExerciseButton.jsx';
 
 export interface ExerciseListProps {}
 
@@ -21,23 +22,15 @@ export function ExerciseList({}: ExerciseListProps) {
   const [data, pages] = hooks.useAllExercisesInfinite({
     pageSize: 50,
   });
-  const client = hooks.useClient();
-  const navigate = useNavigate();
 
   return (
     <div className="col items-start gap-4 w-full">
       <H2>Exercises</H2>
       <CardGrid className="w-full">
-        <Button
-          className="w-full h-full rounded-lg items-center justify-center col"
-          onClick={async () => {
-            const ex = await client.exercises.put({});
-            navigate(`/edit/${ex.get('id')}`);
-          }}
-        >
+        <CreateExerciseButton className="w-full h-full rounded-lg items-center justify-center col">
           <Icon name="plus" />
           <span>Add new</span>
-        </Button>
+        </CreateExerciseButton>
         {data.map((ex) => (
           <ExerciseListItem key={ex.get('id')} exercise={ex} />
         ))}

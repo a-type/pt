@@ -7,22 +7,27 @@ export function shuffle(length: number) {
   return items;
 }
 
-export function getNext<T>(
+export function getNextIndex<T>(
   ordering: number[],
   currentIndex: number,
-  items: T[],
+  itemsLength: number,
 ) {
   let index = currentIndex;
   let totalAttempts = 0;
-  while (
-    ordering[currentIndex] > items.length - 1 &&
-    totalAttempts < ordering.length
-  ) {
+  while (ordering[index] >= itemsLength && totalAttempts < ordering.length) {
     index = (index + 1) % ordering.length;
     totalAttempts++;
   }
-  if (ordering[index] < items.length) {
-    return items[ordering[index]];
+  if (ordering[index] < itemsLength) {
+    return index;
   }
-  return items[0];
+  console.error(
+    'No valid index found from',
+    ordering,
+    'starting at',
+    currentIndex,
+    'with length',
+    itemsLength,
+  );
+  return 0;
 }

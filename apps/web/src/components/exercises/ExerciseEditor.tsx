@@ -12,12 +12,12 @@ export function ExerciseEditor({ exercise }: ExerciseEditorProps) {
 
   return (
     <div className="col items-start gap-4">
-      <label className="col items-start gap-1">
+      <label className="col items-start gap-1 w-full">
         <span>Name</span>
         <LiveUpdateTextField
           value={name}
           onChange={(v) => exercise.set('name', v)}
-          className="text-2xl font-bold"
+          className="text-2xl font-bold w-full"
         />
       </label>
       <label className="col items-start gap-1 w-full">
