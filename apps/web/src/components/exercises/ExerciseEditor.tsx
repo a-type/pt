@@ -18,6 +18,7 @@ export function ExerciseEditor({ exercise }: ExerciseEditorProps) {
           value={name}
           onChange={(v) => exercise.set('name', v)}
           className="text-2xl font-bold w-full"
+          autoSelect
         />
       </label>
       <label className="col items-start gap-1 w-full">

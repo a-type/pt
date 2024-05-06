@@ -126,12 +126,7 @@ function RandomExerciseDisplay({
     }
   }, [orderingIndex, currentIndex, ordering]);
 
-  if (!data.length) {
-    // don't show if no exercises exist
-    return null;
-  }
-
-  if (!item) {
+  if (!data.length || !item) {
     return <div>No exercises match the current filter</div>;
   }
 
